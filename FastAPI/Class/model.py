@@ -13,7 +13,7 @@ class IrisSpecies(BaseModel):
     petal_width: float
 
 # 3. Clase para entrenar el modelo y hacer predicciones
-class IrisModel():
+class IrisModel:
     # Constructor de la clase, carga el conjunto de datos y carga el modelo
     # si existe. Si no, llama al método _train_model y 
     # guarda el modelo
@@ -38,5 +38,6 @@ class IrisModel():
     # 5. Realiza una predicción utilizando el modelo entrenado
     def predict_species(self, sepal_length, sepal_width, petal_length, petal_width):
         data_in = [[sepal_length, sepal_width, petal_length, petal_width]]
-        prediction = self.model.predict(data_in)
-        return prediction[0]
+        prediction_proba = self.model.predict_proba(data_in).tolist()
+        prediction = self.model.predict(data_in).tolist()
+        return prediction, prediction_proba
