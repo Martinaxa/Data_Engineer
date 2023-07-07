@@ -40,4 +40,4 @@ class IrisModel:
         data_in = [[sepal_length, sepal_width, petal_length, petal_width]]
         prediction_proba = self.model.predict_proba(data_in).tolist()
         prediction = self.model.predict(data_in).tolist()
-        return prediction, prediction_proba
+        return prediction[0], prediction_proba[0]
