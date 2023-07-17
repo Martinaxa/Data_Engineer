@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi
+dtFROM tiangolo/uvicorn-gunicorn-fastapi
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
